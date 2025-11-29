@@ -71,34 +71,9 @@ class RetroModernSite {
 
   // ===== SPA ROUTING =====
   setupRouting() {
-    // Only intercept specific prototype page links, allow normal navigation for other pages
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('a');
-      if (link && link.href && link.href.startsWith(window.location.origin)) {
-        const url = new URL(link.href);
-        const path = url.pathname;
-
-        // Allow normal navigation for excel-tips.html and other external pages
-        // Only intercept prototype pages (which don't exist anymore)
-        if (path.includes('excel-tips.html') || path.includes('index.html') || path === '/') {
-          // Let the browser handle normal navigation
-          return;
-        }
-
-        // Only intercept if it's a prototype page
-        if (path.includes('prototype')) {
-          e.preventDefault();
-          this.navigate(path);
-        }
-      }
-    });
-
-    // Handle back/forward buttons
-    window.addEventListener('popstate', (e) => {
-      if (e.state && e.state.page) {
-        this.loadPage(e.state.page, false);
-      }
-    });
+    // SPA routing disabled - using normal browser navigation
+    // No need for SPA since we only have separate HTML files
+    // All links will navigate normally
   }
 
   navigate(path) {
