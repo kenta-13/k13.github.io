@@ -71,14 +71,25 @@ class RetroModernSite {
 
   // ===== SPA ROUTING =====
   setupRouting() {
-    // Intercept all internal links
+    // Only intercept specific prototype page links, allow normal navigation for other pages
     document.addEventListener('click', (e) => {
       const link = e.target.closest('a');
       if (link && link.href && link.href.startsWith(window.location.origin)) {
-        e.preventDefault();
         const url = new URL(link.href);
         const path = url.pathname;
-        this.navigate(path);
+
+        // Allow normal navigation for excel-tips.html and other external pages
+        // Only intercept prototype pages (which don't exist anymore)
+        if (path.includes('excel-tips.html') || path.includes('index.html') || path === '/') {
+          // Let the browser handle normal navigation
+          return;
+        }
+
+        // Only intercept if it's a prototype page
+        if (path.includes('prototype')) {
+          e.preventDefault();
+          this.navigate(path);
+        }
       }
     });
 
