@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Excel Tips & Tricks - Professional Guide</title>
+<link rel="stylesheet" href="./assets/style.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-attachment: fixed;
+  color: #1a1a1a;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.header {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 80px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.3), rgba(118, 75, 162, 0.3));
+  z-index: -1;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.back-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateX(-5px);
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+}
+
+.header p {
+  font-size: 1.3rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+.container {
+  max-width: 1200px;
+  margin: -60px auto 80px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-section {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 35px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  margin-bottom: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-box {
+  width: 100%;
+  padding: 18px 24px;
+  font-size: 1.1rem;
+  border: 2px solid #e8e8e8;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  background: white;
+}
+
+.search-box:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.content-section {
+  margin-bottom: 60px;
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.content-section:nth-child(2) { animation-delay: 0.1s; }
+.content-section:nth-child(3) { animation-delay: 0.2s; }
+.content-section:nth-child(4) { animation-delay: 0.3s; }
+.content-section:nth-child(5) { animation-delay: 0.4s; }
+
+.section-title {
+  font-size: 2.2rem;
+  color: white;
+  margin-bottom: 35px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  letter-spacing: -0.5px;
+}
+
+.tip-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 35px;
+  margin-bottom: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.tip-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  transition: width 0.3s ease;
+}
+
+.tip-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.tip-card:hover::before {
+  width: 100%;
+  opacity: 0.05;
+}
+
+.tip-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.category-badge {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tip-title {
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  font-weight: 700;
+  flex: 1;
+  letter-spacing: -0.5px;
+}
+
+.tip-description {
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.code-block {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #e1e8ed;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: #d63384;
+  font-weight: 600;
+  margin: 10px 0;
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.copyable-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 8px 8px 0;
+  flex-wrap: wrap;
+}
+
+.shortcut-badge {
+  background: linear-gradient(135deg, #2a5298 0%, #1e3c72 100%);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-weight: 700;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(42, 82, 152, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copy-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.copy-btn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.copy-btn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.copy-btn.copied {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+.copy-btn.copied::before {
+  content: '✓';
+  margin-right: 4px;
+}
+
+.formula-container {
+  margin: 18px 0;
+}
+
+.formula-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pro-tip {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-left: 4px solid #ffc107;
+  padding: 16px 20px;
+  margin-top: 18px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.1);
+}
+
+.pro-tip strong {
+  color: #856404;
+  font-weight: 700;
+}
+
+.shortcuts-grid {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 20px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+  font-weight: 700;
+  z-index: 1000;
+  animation: slideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: none;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.toast.show {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast::before {
+  content: '✓';
+  font-size: 1.5rem;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(500px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.footer-cta {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: 50px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  margin-top: 60px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.footer-cta h3 {
+  font-size: 2rem;
+  margin-bottom: 18px;
+  color: #1a1a1a;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.footer-cta p {
+  font-size: 1.15rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.footer-cta a {
+  color: #667eea;
+  font-weight: 700;
+  text-decoration: none;
+  position: relative;
+}
+
+.footer-cta a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.footer-cta a:hover::after {
+  width: 100%;
+}
+
+/* Floating animation for cards */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.tip-card:hover {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .header p {
+    font-size: 1.1rem;
+  }
+
+  .tip-title {
+    font-size: 1.3rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .formula-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .toast {
+    right: 20px;
+    left: 20px;
+    bottom: 20px;
+  }
+
+  .tip-card {
+    padding: 25px;
+  }
+
+  .footer-cta {
+    padding: 35px 25px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-content">
+    <a href="index.html" class="back-link">
+      <span>←</span>
+      <span>Back to Home</span>
+    </a>
+    <h1>📊 Excel Tips & Tricks</h1>
+    <p>Professional guide with copy-paste ready formulas and shortcuts</p>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="search-section">
+    <input
+      type="text"
+      class="search-box"
+      id="searchBox"
+      placeholder="🔍 Search tips... (e.g., 'vlookup', 'shortcut', 'pivot')"
+    >
+  </div>
+
+  <div id="tipsContainer">
+
+    <!-- SHORTCUTS SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">⌨️ Essential Shortcuts</h2>
+
+      <div class="tip-card" data-keywords="shortcut navigation cell jump">
+        <div class="tip-header">
+          <span class="category-badge">Navigation</span>
+          <h3 class="tip-title">Quick Navigation</h3>
+        </div>
+        <p class="tip-description">Jump to the edge of data regions instantly:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + Arrow Keys</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + Arrow Keys', this)">📋 Copy</button>
+          </div>
+        </div>
+        <p class="tip-description" style="margin-top: 15px;">Go to beginning/end of worksheet:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + Home</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + Home', this)">📋 Copy</button>
+          </div>
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + End</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + End', this)">📋 Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="shortcut select selection column row">
+        <div class="tip-header">
+          <span class="category-badge">Selection</span>
+          <h3 class="tip-title">Select Entire Column/Row</h3>
+        </div>
+        <p class="tip-description">Select entire column or row quickly:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + Space</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + Space', this)">📋 Copy</button>
+            <span style="color: #666;">(Select Column)</span>
+          </div>
+          <div class="copyable-item">
+            <span class="shortcut-badge">Shift + Space</span>
+            <button class="copy-btn" onclick="copyText('Shift + Space', this)">📋 Copy</button>
+            <span style="color: #666;">(Select Row)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="shortcut formula today now date time">
+        <div class="tip-header">
+          <span class="category-badge">Time Savers</span>
+          <h3 class="tip-title">Insert Current Date/Time</h3>
+        </div>
+        <p class="tip-description">Quickly insert today's date or current time:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + ;</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + ;', this)">📋 Copy</button>
+            <span style="color: #666;">(Insert Date)</span>
+          </div>
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + Shift + ;</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + Shift + ;', this)">📋 Copy</button>
+            <span style="color: #666;">(Insert Time)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="shortcut format fill down right">
+        <div class="tip-header">
+          <span class="category-badge">Formatting</span>
+          <h3 class="tip-title">Fill Down & Fill Right</h3>
+        </div>
+        <p class="tip-description">Copy format or formula from cell above/left:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + D</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + D', this)">📋 Copy</button>
+            <span style="color: #666;">(Fill Down)</span>
+          </div>
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + R</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + R', this)">📋 Copy</button>
+            <span style="color: #666;">(Fill Right)</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FORMULAS SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">🔢 Essential Formulas</h2>
+
+      <div class="tip-card" data-keywords="formula vlookup lookup search find">
+        <div class="tip-header">
+          <span class="category-badge">Lookup</span>
+          <h3 class="tip-title">VLOOKUP</h3>
+        </div>
+        <p class="tip-description">Find and retrieve data from a table:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code>
+            <button class="copy-btn" onclick="copyText('=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=VLOOKUP(A2, DataTable, 3, FALSE)</code>
+          <button class="copy-btn" onclick="copyText('=VLOOKUP(A2, DataTable, 3, FALSE)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Pro tip:</strong> Always use FALSE (or 0) for exact match
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula index match lookup advanced better">
+        <div class="tip-header">
+          <span class="category-badge">Advanced Lookup</span>
+          <h3 class="tip-title">INDEX + MATCH</h3>
+        </div>
+        <p class="tip-description">More flexible and faster than VLOOKUP - can look left!</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code>
+            <button class="copy-btn" onclick="copyText('=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=INDEX(B:B, MATCH(A2, A:A, 0))</code>
+          <button class="copy-btn" onclick="copyText('=INDEX(B:B, MATCH(A2, A:A, 0))', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula if conditional logic nested">
+        <div class="tip-header">
+          <span class="category-badge">Logic</span>
+          <h3 class="tip-title">IF Statement</h3>
+        </div>
+        <p class="tip-description">Handle multiple conditions with nested IF:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=IF(condition, value_if_true, value_if_false)</code>
+            <button class="copy-btn" onclick="copyText('=IF(condition, value_if_true, value_if_false)', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Nested Example:</strong> <code>=IF(A1>90, "A", IF(A1>80, "B", IF(A1>70, "C", "F")))</code>
+          <button class="copy-btn" onclick="copyText('=IF(A1>90, \"A\", IF(A1>80, \"B\", IF(A1>70, \"C\", \"F\")))', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula sumif countif conditional sum count criteria">
+        <div class="tip-header">
+          <span class="category-badge">Conditional Math</span>
+          <h3 class="tip-title">SUMIF & COUNTIF</h3>
+        </div>
+        <p class="tip-description">Sum or count based on specific criteria:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=SUMIF(range, criteria, [sum_range])</code>
+            <button class="copy-btn" onclick="copyText('=SUMIF(range, criteria, [sum_range])', this)">📋 Copy</button>
+          </div>
+          <div class="formula-wrapper" style="margin-top: 10px;">
+            <code class="code-block">=COUNTIF(range, criteria)</code>
+            <button class="copy-btn" onclick="copyText('=COUNTIF(range, criteria)', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=SUMIF(A:A, ">100", B:B)</code>
+          <button class="copy-btn" onclick="copyText('=SUMIF(A:A, \">100\", B:B)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula text concatenate combine join">
+        <div class="tip-header">
+          <span class="category-badge">Text</span>
+          <h3 class="tip-title">Combine Text</h3>
+        </div>
+        <p class="tip-description">Join text from multiple cells:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=A1&" "&B1</code>
+            <button class="copy-btn" onclick="copyText('=A1&\" \"&B1', this)">📋 Copy</button>
+          </div>
+          <div class="formula-wrapper" style="margin-top: 10px;">
+            <code class="code-block">=CONCATENATE(A1, " ", B1)</code>
+            <button class="copy-btn" onclick="copyText('=CONCATENATE(A1, \" \", B1)', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Modern way:</strong> Use TEXTJOIN() for multiple cells with delimiter
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula error iferror handling">
+        <div class="tip-header">
+          <span class="category-badge">Error Handling</span>
+          <h3 class="tip-title">IFERROR</h3>
+        </div>
+        <p class="tip-description">Handle errors gracefully in your formulas:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=IFERROR(formula, value_if_error)</code>
+            <button class="copy-btn" onclick="copyText('=IFERROR(formula, value_if_error)', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=IFERROR(A1/B1, "Division error")</code>
+          <button class="copy-btn" onclick="copyText('=IFERROR(A1/B1, \"Division error\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DATA MANAGEMENT SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">🗂️ Data Management</h2>
+
+      <div class="tip-card" data-keywords="data table pivot pivottable analysis summarize">
+        <div class="tip-header">
+          <span class="category-badge">Analysis</span>
+          <h3 class="tip-title">Pivot Tables</h3>
+        </div>
+        <p class="tip-description">Create powerful data summaries in seconds:</p>
+        <ol style="margin-left: 20px; color: #4a5568; line-height: 2;">
+          <li>Select your data range</li>
+          <li>Insert → PivotTable</li>
+          <li>Drag fields to Rows, Columns, Values</li>
+        </ol>
+        <div class="shortcuts-grid" style="margin-top: 15px;">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Alt + N + V</span>
+            <button class="copy-btn" onclick="copyText('Alt + N + V', this)">📋 Copy Shortcut</button>
+            <span style="color: #666;">(Quick PivotTable)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="data filter autofilter sort organize">
+        <div class="tip-header">
+          <span class="category-badge">Organization</span>
+          <h3 class="tip-title">Auto-Filter</h3>
+        </div>
+        <p class="tip-description">Add dropdown filters to headers instantly:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + Shift + L</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + Shift + L', this)">📋 Copy</button>
+          </div>
+        </div>
+        <p class="tip-description" style="margin-top: 15px;">Click the dropdown arrows to filter or sort your data.</p>
+      </div>
+
+      <div class="tip-card" data-keywords="data validation dropdown list restrict">
+        <div class="tip-header">
+          <span class="category-badge">Data Quality</span>
+          <h3 class="tip-title">Data Validation</h3>
+        </div>
+        <p class="tip-description">Create dropdown lists or restrict input:</p>
+        <ol style="margin-left: 20px; color: #4a5568; line-height: 2;">
+          <li>Select cells</li>
+          <li>Data → Data Validation</li>
+          <li>Choose criteria (List, Number, Date, etc.)</li>
+        </ol>
+        <div class="pro-tip" style="margin-top: 15px;">
+          <strong>Example:</strong> Create a dropdown with "Yes, No, Maybe"
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="data freeze panes header lock row column">
+        <div class="tip-header">
+          <span class="category-badge">View</span>
+          <h3 class="tip-title">Freeze Panes</h3>
+        </div>
+        <p class="tip-description">Keep headers visible while scrolling:</p>
+        <ol style="margin-left: 20px; color: #4a5568; line-height: 2;">
+          <li>Click the cell below and right of what you want frozen</li>
+          <li>View → Freeze Panes → Freeze Panes</li>
+        </ol>
+        <div class="pro-tip" style="margin-top: 15px;">
+          <strong>Quick freeze top row:</strong> View → Freeze Top Row
+        </div>
+      </div>
+
+    </div>
+
+    <!-- PRO TIPS SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">💡 Pro Tips</h2>
+
+      <div class="tip-card" data-keywords="flash fill smart pattern auto">
+        <div class="tip-header">
+          <span class="category-badge">AI Helper</span>
+          <h3 class="tip-title">Flash Fill</h3>
+        </div>
+        <p class="tip-description">Excel detects patterns and fills data automatically:</p>
+        <ol style="margin-left: 20px; color: #4a5568; line-height: 2;">
+          <li>Type a few examples of the pattern you want</li>
+          <li>Press Ctrl + E</li>
+        </ol>
+        <div class="shortcuts-grid" style="margin-top: 15px;">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + E</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + E', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip" style="margin-top: 15px;">
+          <strong>Use cases:</strong> Extract first names, format phone numbers, split addresses
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="format number custom currency percentage">
+        <div class="tip-header">
+          <span class="category-badge">Formatting</span>
+          <h3 class="tip-title">Custom Number Formats</h3>
+        </div>
+        <p class="tip-description">Create custom formats (Right-click → Format Cells → Custom):</p>
+        <div class="formula-container">
+          <div class="copyable-item">
+            <code class="code-block">#,##0</code>
+            <button class="copy-btn" onclick="copyText('#,##0', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Thousands separator</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">$#,##0.00</code>
+            <button class="copy-btn" onclick="copyText('$#,##0.00', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Currency with 2 decimals</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">0.00%</code>
+            <button class="copy-btn" onclick="copyText('0.00%', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Percentage</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="array formula ctrl shift enter">
+        <div class="tip-header">
+          <span class="category-badge">Advanced</span>
+          <h3 class="tip-title">Array Formulas</h3>
+        </div>
+        <p class="tip-description">Perform calculations on multiple values at once:</p>
+        <div class="shortcuts-grid">
+          <div class="copyable-item">
+            <span class="shortcut-badge">Ctrl + Shift + Enter</span>
+            <button class="copy-btn" onclick="copyText('Ctrl + Shift + Enter', this)">📋 Copy</button>
+            <span style="color: #666;">(Confirm array formula)</span>
+          </div>
+        </div>
+        <div class="pro-tip" style="margin-top: 15px;">
+          <strong>Example:</strong> <code>=SUM(A1:A10*B1:B10)</code>
+          <button class="copy-btn" onclick="copyText('=SUM(A1:A10*B1:B10)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Footer CTA -->
+  <div class="footer-cta">
+    <h3>💼 Need Personalized Excel Consulting?</h3>
+    <p style="margin-top: 10px;">
+      Get expert help with custom formulas, automation, and data analysis.
+      <a href="index.html#contact">Contact me</a> for a free consultation.
+    </p>
+  </div>
+
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">Copied to clipboard!</div>
+
+<script src="./script.js"></script>
+<script>
+// Copy to clipboard function
+function copyText(text, button) {
+  navigator.clipboard.writeText(text).then(() => {
+    // Show toast notification
+    const toast = document.getElementById('toast');
+    toast.classList.add('show');
+
+    // Change button state
+    button.classList.add('copied');
+    const originalText = button.innerHTML;
+    button.innerHTML = '✓ Copied';
+
+    // Reset button after 2 seconds
+    setTimeout(() => {
+      button.classList.remove('copied');
+      button.innerHTML = originalText;
+    }, 2000);
+
+    // Hide toast after 2 seconds
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2000);
+  }).catch(err => {
+    console.error('Failed to copy:', err);
+    alert('Failed to copy. Please try again.');
+  });
+}
+
+// Search functionality
+document.getElementById('searchBox').addEventListener('input', function(e) {
+  const searchTerm = e.target.value.toLowerCase();
+  const tips = document.querySelectorAll('.tip-card');
+
+  tips.forEach(tip => {
+    const keywords = tip.getAttribute('data-keywords') || '';
+    const title = tip.querySelector('.tip-title').textContent.toLowerCase();
+    const description = tip.textContent.toLowerCase();
+
+    const searchText = keywords + ' ' + title + ' ' + description;
+
+    if (searchText.includes(searchTerm)) {
+      tip.style.display = 'block';
+    } else {
+      tip.style.display = 'none';
+    }
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

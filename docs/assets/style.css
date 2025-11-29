@@ -1,0 +1,280 @@
+/* Retro 1999 Aesthetics with Modern Functionality */
+
+:root {
+  --primary-bg: #000080;
+  --primary-text: #FFFF00;
+  --link-color: #00FFFF;
+  --visited-color: #FF00FF;
+  --accent-color: #00FF00;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  transition: opacity var(--transition-speed) ease-in-out;
+}
+
+/* Modern Responsive Grid */
+@media (max-width: 768px) {
+  table[width="80%"],
+  table[width="75%"],
+  table[width="70%"] {
+    width: 95% !important;
+  }
+
+  font[size="7"] {
+    font-size: 2rem !important;
+  }
+
+  font[size="6"] {
+    font-size: 1.75rem !important;
+  }
+
+  font[size="5"] {
+    font-size: 1.5rem !important;
+  }
+
+  marquee {
+    font-size: 0.9rem !important;
+  }
+}
+
+/* Smooth Page Transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+
+/* Modern Hover Effects (while keeping retro look) */
+a {
+  position: relative;
+  transition: all var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+a:hover {
+  text-shadow: 0 0 10px currentColor;
+  transform: scale(1.05);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar (retro style) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00FFFF;
+  border: 2px solid #000000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFFF00;
+}
+
+/* Animate Tables on Load */
+table {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glowing Effect for Special Elements */
+.glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px currentColor;
+  }
+  to {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px currentColor;
+  }
+}
+
+/* Modern Loading Spinner (retro style) */
+.loading {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #00FFFF;
+  border-top-color: #FFFF00;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Blink animation (since CSS removed it) */
+blink, .blink {
+  animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Hidden class for SPA routing */
+.hidden {
+  display: none !important;
+}
+
+/* Fade transitions */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Visitor Counter Styles */
+.visitor-counter {
+  display: inline-block;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  padding: 5px 10px;
+  background: rgba(0, 255, 0, 0.2);
+  border: 2px solid #00FF00;
+  border-radius: 4px;
+  transition: all var(--transition-speed);
+}
+
+.visitor-counter:hover {
+  background: rgba(0, 255, 0, 0.4);
+  transform: scale(1.1);
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid #FFFFFF;
+  color: #FFFFFF;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: all var(--transition-speed);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Dark/Light Theme Support */
+body.light-theme {
+  filter: brightness(1.2);
+}
+
+body.dark-theme {
+  filter: brightness(0.8);
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Pulse Animation for Important Elements */
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Marquee replacement with CSS (progressive enhancement) */
+@media (prefers-reduced-motion: reduce) {
+  marquee {
+    animation: none !important;
+    overflow: visible;
+  }
+}
+
+/* Touch-friendly clickable areas */
+@media (hover: none) {
+  a, button, input, select {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Print styles (bonus) */
+@media print {
+  .theme-toggle,
+  marquee,
+  blink {
+    display: none !important;
+  }
+}
