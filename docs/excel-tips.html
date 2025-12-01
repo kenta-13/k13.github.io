@@ -630,42 +630,47 @@ body {
     <div class="content-section">
       <h2 class="section-title">🔢 Essential Formulas</h2>
 
-      <div class="tip-card" data-keywords="formula vlookup lookup search find">
+      <div class="tip-card" data-keywords="formula sum total add basic math">
         <div class="tip-header">
-          <span class="category-badge">Lookup</span>
-          <h3 class="tip-title">VLOOKUP</h3>
+          <span class="category-badge">Basic Math</span>
+          <h3 class="tip-title">SUM</h3>
         </div>
-        <p class="tip-description">Find and retrieve data from a table:</p>
+        <p class="tip-description">Add up numbers in a range:</p>
         <div class="formula-container">
           <div class="formula-wrapper">
-            <code class="code-block">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code>
-            <button class="copy-btn" onclick="copyText('=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])', this)">📋 Copy Formula</button>
+            <code class="code-block">=SUM(number1, [number2], ...)</code>
+            <button class="copy-btn" onclick="copyText('=SUM(number1, [number2], ...)', this)">📋 Copy Formula</button>
           </div>
         </div>
         <div class="pro-tip">
-          <strong>Example:</strong> <code>=VLOOKUP(A2, DataTable, 3, FALSE)</code>
-          <button class="copy-btn" onclick="copyText('=VLOOKUP(A2, DataTable, 3, FALSE)', this)" style="margin-left: 10px;">📋 Copy</button>
+          <strong>Example:</strong> <code>=SUM(A1:A10)</code> - Sum all values from A1 to A10
+          <button class="copy-btn" onclick="copyText('=SUM(A1:A10)', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
         <div class="pro-tip" style="margin-top: 10px;">
-          <strong>Pro tip:</strong> Always use FALSE (or 0) for exact match
+          <strong>Practical:</strong> <code>=SUM(B2:B50)</code> - Calculate total sales for the month
+          <button class="copy-btn" onclick="copyText('=SUM(B2:B50)', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
       </div>
 
-      <div class="tip-card" data-keywords="formula index match lookup advanced better">
+      <div class="tip-card" data-keywords="formula counta count non-empty cells">
         <div class="tip-header">
-          <span class="category-badge">Advanced Lookup</span>
-          <h3 class="tip-title">INDEX + MATCH</h3>
+          <span class="category-badge">Counting</span>
+          <h3 class="tip-title">COUNTA</h3>
         </div>
-        <p class="tip-description">More flexible and faster than VLOOKUP - can look left!</p>
+        <p class="tip-description">Count non-empty cells in a range:</p>
         <div class="formula-container">
           <div class="formula-wrapper">
-            <code class="code-block">=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code>
-            <button class="copy-btn" onclick="copyText('=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))', this)">📋 Copy Formula</button>
+            <code class="code-block">=COUNTA(value1, [value2], ...)</code>
+            <button class="copy-btn" onclick="copyText('=COUNTA(value1, [value2], ...)', this)">📋 Copy Formula</button>
           </div>
         </div>
         <div class="pro-tip">
-          <strong>Example:</strong> <code>=INDEX(B:B, MATCH(A2, A:A, 0))</code>
-          <button class="copy-btn" onclick="copyText('=INDEX(B:B, MATCH(A2, A:A, 0))', this)" style="margin-left: 10px;">📋 Copy</button>
+          <strong>Example:</strong> <code>=COUNTA(A1:A100)</code> - Count how many cells have data
+          <button class="copy-btn" onclick="copyText('=COUNTA(A1:A100)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=COUNTA(C2:C100)</code> - Count number of responses in survey
+          <button class="copy-btn" onclick="copyText('=COUNTA(C2:C100)', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
       </div>
 
@@ -674,7 +679,7 @@ body {
           <span class="category-badge">Logic</span>
           <h3 class="tip-title">IF Statement</h3>
         </div>
-        <p class="tip-description">Handle multiple conditions with nested IF:</p>
+        <p class="tip-description">Make decisions based on conditions:</p>
         <div class="formula-container">
           <div class="formula-wrapper">
             <code class="code-block">=IF(condition, value_if_true, value_if_false)</code>
@@ -682,7 +687,15 @@ body {
           </div>
         </div>
         <div class="pro-tip">
-          <strong>Nested Example:</strong> <code>=IF(A1>90, "A", IF(A1>80, "B", IF(A1>70, "C", "F")))</code>
+          <strong>Example:</strong> <code>=IF(A1>100, "High", "Low")</code>
+          <button class="copy-btn" onclick="copyText('=IF(A1>100, \"High\", \"Low\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=IF(B2>=60, "Pass", "Fail")</code> - Check if student passed (60+ score)
+          <button class="copy-btn" onclick="copyText('=IF(B2>=60, \"Pass\", \"Fail\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Nested:</strong> <code>=IF(A1>90, "A", IF(A1>80, "B", IF(A1>70, "C", "F")))</code> - Grade calculator
           <button class="copy-btn" onclick="copyText('=IF(A1>90, \"A\", IF(A1>80, \"B\", IF(A1>70, \"C\", \"F\")))', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
       </div>
@@ -704,33 +717,176 @@ body {
           </div>
         </div>
         <div class="pro-tip">
-          <strong>Example:</strong> <code>=SUMIF(A:A, ">100", B:B)</code>
-          <button class="copy-btn" onclick="copyText('=SUMIF(A:A, \">100\", B:B)', this)" style="margin-left: 10px;">📋 Copy</button>
+          <strong>Example:</strong> <code>=SUMIF(A2:A100, ">100", B2:B100)</code> - Sum values in B where A > 100
+          <button class="copy-btn" onclick="copyText('=SUMIF(A2:A100, \">100\", B2:B100)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=SUMIF(C2:C50, "Completed", D2:D50)</code> - Total revenue from completed orders
+          <button class="copy-btn" onclick="copyText('=SUMIF(C2:C50, \"Completed\", D2:D50)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Count Example:</strong> <code>=COUNTIF(B2:B100, "Yes")</code> - Count how many "Yes" responses
+          <button class="copy-btn" onclick="copyText('=COUNTIF(B2:B100, \"Yes\")', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
       </div>
 
-      <div class="tip-card" data-keywords="formula text concatenate combine join">
+      <div class="tip-card" data-keywords="formula vlookup lookup search find">
         <div class="tip-header">
-          <span class="category-badge">Text</span>
-          <h3 class="tip-title">Combine Text</h3>
+          <span class="category-badge">Lookup</span>
+          <h3 class="tip-title">VLOOKUP</h3>
         </div>
-        <p class="tip-description">Join text from multiple cells:</p>
+        <p class="tip-description">Find and retrieve data from a table:</p>
         <div class="formula-container">
           <div class="formula-wrapper">
-            <code class="code-block">=A1&" "&B1</code>
-            <button class="copy-btn" onclick="copyText('=A1&\" \"&B1', this)">📋 Copy</button>
-          </div>
-          <div class="formula-wrapper" style="margin-top: 10px;">
-            <code class="code-block">=CONCATENATE(A1, " ", B1)</code>
-            <button class="copy-btn" onclick="copyText('=CONCATENATE(A1, \" \", B1)', this)">📋 Copy</button>
+            <code class="code-block">=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])</code>
+            <button class="copy-btn" onclick="copyText('=VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])', this)">📋 Copy Formula</button>
           </div>
         </div>
         <div class="pro-tip">
-          <strong>Modern way:</strong> Use TEXTJOIN() for multiple cells with delimiter
+          <strong>Example:</strong> <code>=VLOOKUP(A2, B2:D100, 3, FALSE)</code> - Find value in column A, return from 3rd column
+          <button class="copy-btn" onclick="copyText('=VLOOKUP(A2, B2:D100, 3, FALSE)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=VLOOKUP(E2, Products!A:C, 3, FALSE)</code> - Look up product ID, get price
+          <button class="copy-btn" onclick="copyText('=VLOOKUP(E2, Products!A:C, 3, FALSE)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Pro tip:</strong> Always use FALSE (or 0) for exact match
         </div>
       </div>
 
-      <div class="tip-card" data-keywords="formula error iferror handling">
+    </div>
+
+    <!-- ADVANCED FORMULAS SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">🚀 Advanced Formulas</h2>
+
+      <div class="tip-card" data-keywords="formula product multiply times math">
+        <div class="tip-header">
+          <span class="category-badge">Math</span>
+          <h3 class="tip-title">PRODUCT</h3>
+        </div>
+        <p class="tip-description">Multiply numbers in a range:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=PRODUCT(number1, [number2], ...)</code>
+            <button class="copy-btn" onclick="copyText('=PRODUCT(number1, [number2], ...)', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=PRODUCT(A1:A5)</code> - Multiply all values from A1 to A5
+          <button class="copy-btn" onclick="copyText('=PRODUCT(A1:A5)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=PRODUCT(B2, C2, D2)</code> - Calculate total price (quantity × unit price × tax rate)
+          <button class="copy-btn" onclick="copyText('=PRODUCT(B2, C2, D2)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula concatenate concat combine join text">
+        <div class="tip-header">
+          <span class="category-badge">Text</span>
+          <h3 class="tip-title">CONCATENATE (CONCAT)</h3>
+        </div>
+        <p class="tip-description">Combine text from multiple cells:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=CONCATENATE(text1, [text2], ...)</code>
+            <button class="copy-btn" onclick="copyText('=CONCATENATE(text1, [text2], ...)', this)">📋 Copy</button>
+          </div>
+          <div class="formula-wrapper" style="margin-top: 10px;">
+            <code class="code-block">=CONCAT(text1, [text2], ...)</code>
+            <button class="copy-btn" onclick="copyText('=CONCAT(text1, [text2], ...)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">(Modern version)</span>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=CONCATENATE(A2, " ", B2)</code> - Combine first and last name
+          <button class="copy-btn" onclick="copyText('=CONCATENATE(A2, \" \", B2)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=CONCATENATE(A2, " - ", B2, " (", C2, ")")</code> - Create product label "Name - Code (Category)"
+          <button class="copy-btn" onclick="copyText('=CONCATENATE(A2, \" - \", B2, \" (\", C2, \")\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Alternative:</strong> Use <code>=A2&" "&B2</code> for simpler concatenation
+          <button class="copy-btn" onclick="copyText('=A2&\" \"&B2', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula index array return value position">
+        <div class="tip-header">
+          <span class="category-badge">Lookup</span>
+          <h3 class="tip-title">INDEX</h3>
+        </div>
+        <p class="tip-description">Return value from specific position in array:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=INDEX(array, row_num, [column_num])</code>
+            <button class="copy-btn" onclick="copyText('=INDEX(array, row_num, [column_num])', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=INDEX(A1:C10, 5, 2)</code> - Get value from 5th row, 2nd column
+          <button class="copy-btn" onclick="copyText('=INDEX(A1:C10, 5, 2)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=INDEX(Products!B:B, 10)</code> - Get 10th product name from column B
+          <button class="copy-btn" onclick="copyText('=INDEX(Products!B:B, 10)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula index match lookup advanced better flexible">
+        <div class="tip-header">
+          <span class="category-badge">Advanced Lookup</span>
+          <h3 class="tip-title">INDEX MATCH</h3>
+        </div>
+        <p class="tip-description">More powerful than VLOOKUP - can look left, right, up, down!</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))</code>
+            <button class="copy-btn" onclick="copyText('=INDEX(return_range, MATCH(lookup_value, lookup_range, 0))', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=INDEX(C2:C100, MATCH(E2, A2:A100, 0))</code> - Find E2 in column A, return from column C
+          <button class="copy-btn" onclick="copyText('=INDEX(C2:C100, MATCH(E2, A2:A100, 0))', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=INDEX(Prices!B:B, MATCH(A2, Prices!A:A, 0))</code> - Look up product ID, get price (works left!)
+          <button class="copy-btn" onclick="copyText('=INDEX(Prices!B:B, MATCH(A2, Prices!A:A, 0))', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Advantage:</strong> Can look in any direction, not just right like VLOOKUP
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula xlookup lookup modern search replace vlookup">
+        <div class="tip-header">
+          <span class="category-badge">Modern Lookup</span>
+          <h3 class="tip-title">XLOOKUP (Excel 365)</h3>
+        </div>
+        <p class="tip-description">Modern replacement for VLOOKUP - more powerful and flexible:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</code>
+            <button class="copy-btn" onclick="copyText('=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=XLOOKUP(A2, B2:B100, D2:D100, "Not Found")</code> - Look in B, return from D
+          <button class="copy-btn" onclick="copyText('=XLOOKUP(A2, B2:B100, D2:D100, \"Not Found\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=XLOOKUP(E2, Products!A:A, Products!C:C, "Item not in stock")</code> - Get stock status by product ID
+          <button class="copy-btn" onclick="copyText('=XLOOKUP(E2, Products!A:A, Products!C:C, \"Item not in stock\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Benefits:</strong> Can search any direction, built-in error handling, faster than VLOOKUP
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula iferror error handling graceful">
         <div class="tip-header">
           <span class="category-badge">Error Handling</span>
           <h3 class="tip-title">IFERROR</h3>
@@ -743,8 +899,243 @@ body {
           </div>
         </div>
         <div class="pro-tip">
-          <strong>Example:</strong> <code>=IFERROR(A1/B1, "Division error")</code>
-          <button class="copy-btn" onclick="copyText('=IFERROR(A1/B1, \"Division error\")', this)" style="margin-left: 10px;">📋 Copy</button>
+          <strong>Example:</strong> <code>=IFERROR(A2/B2, 0)</code> - Divide, return 0 if error (e.g., divide by zero)
+          <button class="copy-btn" onclick="copyText('=IFERROR(A2/B2, 0)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=IFERROR(VLOOKUP(A2, Products!A:C, 3, FALSE), "Not found")</code> - Clean VLOOKUP without #N/A errors
+          <button class="copy-btn" onclick="copyText('=IFERROR(VLOOKUP(A2, Products!A:C, 3, FALSE), \"Not found\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula substitute replace text find change">
+        <div class="tip-header">
+          <span class="category-badge">Text Replace</span>
+          <h3 class="tip-title">SUBSTITUTE</h3>
+        </div>
+        <p class="tip-description">Replace specific text within a string:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=SUBSTITUTE(text, old_text, new_text, [instance_num])</code>
+            <button class="copy-btn" onclick="copyText('=SUBSTITUTE(text, old_text, new_text, [instance_num])', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=SUBSTITUTE(A2, "old", "new")</code> - Replace "old" with "new"
+          <button class="copy-btn" onclick="copyText('=SUBSTITUTE(A2, \"old\", \"new\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=SUBSTITUTE(B2, "-", "")</code> - Remove hyphens from phone number (555-1234 → 5551234)
+          <button class="copy-btn" onclick="copyText('=SUBSTITUTE(B2, \"-\", \"\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Replace 2nd occurrence:</strong> <code>=SUBSTITUTE(A2, " ", "-", 2)</code> - Replace only 2nd space with hyphen
+          <button class="copy-btn" onclick="copyText('=SUBSTITUTE(A2, \" \", \"-\", 2)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DATA PROCESSING SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">⚡ Data Processing</h2>
+
+      <div class="tip-card" data-keywords="formula filter dynamic array conditional display">
+        <div class="tip-header">
+          <span class="category-badge">Dynamic Filter</span>
+          <h3 class="tip-title">FILTER</h3>
+        </div>
+        <p class="tip-description">Display only rows that meet your criteria (Excel 365):</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=FILTER(array, include, [if_empty])</code>
+            <button class="copy-btn" onclick="copyText('=FILTER(array, include, [if_empty])', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=FILTER(A2:C100, B2:B100>1000)</code> - Show all rows where column B > 1000
+          <button class="copy-btn" onclick="copyText('=FILTER(A2:C100, B2:B100>1000)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=FILTER(Orders!A:D, Orders!C:C="Pending", "No pending orders")</code> - Show only pending orders
+          <button class="copy-btn" onclick="copyText('=FILTER(Orders!A:D, Orders!C:C=\"Pending\", \"No pending orders\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Multiple criteria:</strong> <code>=FILTER(A2:D100, (B2:B100="USA") * (C2:C100>500))</code> - USA AND sales > 500
+          <button class="copy-btn" onclick="copyText('=FILTER(A2:D100, (B2:B100=\"USA\") * (C2:C100>500))', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula sort order arrange ascending descending">
+        <div class="tip-header">
+          <span class="category-badge">Dynamic Sort</span>
+          <h3 class="tip-title">SORT</h3>
+        </div>
+        <p class="tip-description">Automatically sort data in ascending or descending order (Excel 365):</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=SORT(array, [sort_index], [sort_order], [by_col])</code>
+            <button class="copy-btn" onclick="copyText('=SORT(array, [sort_index], [sort_order], [by_col])', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=SORT(A2:C100, 2, -1)</code> - Sort by 2nd column, descending (-1)
+          <button class="copy-btn" onclick="copyText('=SORT(A2:C100, 2, -1)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=SORT(Sales!A:D, 4, -1)</code> - Show sales data, highest revenue first
+          <button class="copy-btn" onclick="copyText('=SORT(Sales!A:D, 4, -1)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Note:</strong> Use 1 for ascending, -1 for descending order
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula unique distinct remove duplicates">
+        <div class="tip-header">
+          <span class="category-badge">Remove Duplicates</span>
+          <h3 class="tip-title">UNIQUE</h3>
+        </div>
+        <p class="tip-description">Extract only unique values from a list (Excel 365):</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=UNIQUE(array, [by_col], [occurs_once])</code>
+            <button class="copy-btn" onclick="copyText('=UNIQUE(array, [by_col], [occurs_once])', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=UNIQUE(A2:A100)</code> - Get list of unique values from column A
+          <button class="copy-btn" onclick="copyText('=UNIQUE(A2:A100)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=UNIQUE(Customers!B:B)</code> - Create dropdown of unique customer names
+          <button class="copy-btn" onclick="copyText('=UNIQUE(Customers!B:B)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Combine with SORT:</strong> <code>=SORT(UNIQUE(A2:A100))</code> - Unique values, alphabetically sorted
+          <button class="copy-btn" onclick="copyText('=SORT(UNIQUE(A2:A100))', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula sumifs countifs averageifs multiple criteria conditional">
+        <div class="tip-header">
+          <span class="category-badge">Multiple Criteria</span>
+          <h3 class="tip-title">SUMIFS, COUNTIFS & AVERAGEIFS</h3>
+        </div>
+        <p class="tip-description">Apply multiple conditions at once:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2]...)</code>
+            <button class="copy-btn" onclick="copyText('=SUMIFS(sum_range, criteria_range1, criteria1, [criteria_range2, criteria2]...)', this)">📋 Copy</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=SUMIFS(Sales, Region, "East", Quarter, "Q1")</code> - Sum sales for East region in Q1
+          <button class="copy-btn" onclick="copyText('=SUMIFS(Sales, Region, \"East\", Quarter, \"Q1\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Similarly:</strong> Use COUNTIFS for counting, AVERAGEIFS for averaging with multiple criteria
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula text left right mid trim textjoin split extract">
+        <div class="tip-header">
+          <span class="category-badge">Text Processing</span>
+          <h3 class="tip-title">Text Manipulation Functions</h3>
+        </div>
+        <p class="tip-description">Extract and manipulate text data:</p>
+        <div class="formula-container">
+          <div class="copyable-item">
+            <code class="code-block">=LEFT(text, num_chars)</code>
+            <button class="copy-btn" onclick="copyText('=LEFT(text, num_chars)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">First N characters</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=RIGHT(text, num_chars)</code>
+            <button class="copy-btn" onclick="copyText('=RIGHT(text, num_chars)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Last N characters</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=MID(text, start_num, num_chars)</code>
+            <button class="copy-btn" onclick="copyText('=MID(text, start_num, num_chars)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Middle characters</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=TRIM(text)</code>
+            <button class="copy-btn" onclick="copyText('=TRIM(text)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Remove extra spaces</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=TEXTJOIN(delimiter, ignore_empty, text1, [text2]...)</code>
+            <button class="copy-btn" onclick="copyText('=TEXTJOIN(delimiter, ignore_empty, text1, [text2]...)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Join text with delimiter</span>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=LEFT(A2, FIND(" ", A2)-1)</code> - Extract first name
+          <button class="copy-btn" onclick="copyText('=LEFT(A2, FIND(\" \", A2)-1)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula date datedif workday networkdays eomonth business days">
+        <div class="tip-header">
+          <span class="category-badge">Date Functions</span>
+          <h3 class="tip-title">Date & Time Calculations</h3>
+        </div>
+        <p class="tip-description">Advanced date calculations for business and analytics:</p>
+        <div class="formula-container">
+          <div class="copyable-item">
+            <code class="code-block">=DATEDIF(start_date, end_date, "D")</code>
+            <button class="copy-btn" onclick="copyText('=DATEDIF(start_date, end_date, \"D\")', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Days between dates</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=WORKDAY(start_date, days, [holidays])</code>
+            <button class="copy-btn" onclick="copyText('=WORKDAY(start_date, days, [holidays])', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Add business days</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=NETWORKDAYS(start_date, end_date, [holidays])</code>
+            <button class="copy-btn" onclick="copyText('=NETWORKDAYS(start_date, end_date, [holidays])', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Count business days</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=EOMONTH(start_date, months)</code>
+            <button class="copy-btn" onclick="copyText('=EOMONTH(start_date, months)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">End of month</span>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Use "Y", "M", "D", "YM", "MD", "YD"</strong> in DATEDIF for years, months, days, etc.
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula clean substitute remove replace special characters">
+        <div class="tip-header">
+          <span class="category-badge">Data Cleaning</span>
+          <h3 class="tip-title">Clean & Transform Data</h3>
+        </div>
+        <p class="tip-description">Remove unwanted characters and clean messy data:</p>
+        <div class="formula-container">
+          <div class="copyable-item">
+            <code class="code-block">=CLEAN(text)</code>
+            <button class="copy-btn" onclick="copyText('=CLEAN(text)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Remove non-printable characters</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=SUBSTITUTE(text, old_text, new_text)</code>
+            <button class="copy-btn" onclick="copyText('=SUBSTITUTE(text, old_text, new_text)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Replace text</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=UPPER(text) / =LOWER(text) / =PROPER(text)</code>
+            <button class="copy-btn" onclick="copyText('=UPPER(text)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Change case</span>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=TRIM(CLEAN(A2))</code> - Remove extra spaces and non-printable chars
+          <button class="copy-btn" onclick="copyText('=TRIM(CLEAN(A2))', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
       </div>
 
@@ -817,6 +1208,129 @@ body {
         </ol>
         <div class="pro-tip" style="margin-top: 15px;">
           <strong>Quick freeze top row:</strong> View → Freeze Top Row
+        </div>
+      </div>
+
+    </div>
+
+    <!-- QUICK TIPS & TRICKS SECTION -->
+    <div class="content-section">
+      <h2 class="section-title">⚡ Quick Tips & Tricks</h2>
+
+      <div class="tip-card" data-keywords="formula row function number position index auto">
+        <div class="tip-header">
+          <span class="category-badge">Reference</span>
+          <h3 class="tip-title">ROW & COLUMN</h3>
+        </div>
+        <p class="tip-description">Get row or column number of a cell:</p>
+        <div class="formula-container">
+          <div class="copyable-item">
+            <code class="code-block">=ROW([reference])</code>
+            <button class="copy-btn" onclick="copyText('=ROW([reference])', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Returns row number</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=COLUMN([reference])</code>
+            <button class="copy-btn" onclick="copyText('=COLUMN([reference])', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Returns column number</span>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=ROW()</code> - Returns current row number (e.g., 5 if in row 5)
+          <button class="copy-btn" onclick="copyText('=ROW()', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=ROW()-1</code> - Auto-numbering (1, 2, 3...) starting from row 2
+          <button class="copy-btn" onclick="copyText('=ROW()-1', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula today date current now function">
+        <div class="tip-header">
+          <span class="category-badge">Date</span>
+          <h3 class="tip-title">TODAY Function</h3>
+        </div>
+        <p class="tip-description">Insert current date that auto-updates:</p>
+        <div class="formula-container">
+          <div class="formula-wrapper">
+            <code class="code-block">=TODAY()</code>
+            <button class="copy-btn" onclick="copyText('=TODAY()', this)">📋 Copy Formula</button>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=TODAY()</code> - Shows today's date (updates daily)
+          <button class="copy-btn" onclick="copyText('=TODAY()', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=TODAY()+30</code> - Date 30 days from today
+          <button class="copy-btn" onclick="copyText('=TODAY()+30', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Calculate age:</strong> <code>=DATEDIF(B2, TODAY(), "Y")</code> - Age in years from birth date in B2
+          <button class="copy-btn" onclick="copyText('=DATEDIF(B2, TODAY(), \"Y\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Static date:</strong> Use <code>Ctrl + ;</code> to insert today's date (doesn't update)
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="formula char asc character code ascii text">
+        <div class="tip-header">
+          <span class="category-badge">Characters</span>
+          <h3 class="tip-title">CHAR & ASC</h3>
+        </div>
+        <p class="tip-description">Convert between characters and their codes:</p>
+        <div class="formula-container">
+          <div class="copyable-item">
+            <code class="code-block">=CHAR(number)</code>
+            <button class="copy-btn" onclick="copyText('=CHAR(number)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Number to character</span>
+          </div>
+          <div class="copyable-item" style="margin-top: 10px;">
+            <code class="code-block">=CODE(text)</code>
+            <button class="copy-btn" onclick="copyText('=CODE(text)', this)">📋 Copy</button>
+            <span style="color: #666; margin-left: 10px;">Character to number (also called ASC)</span>
+          </div>
+        </div>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=CHAR(65)</code> - Returns "A" (65 is ASCII code for A)
+          <button class="copy-btn" onclick="copyText('=CHAR(65)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=CHAR(10)</code> - Line break in cell (use with ALT+ENTER or in formula)
+          <button class="copy-btn" onclick="copyText('=CHAR(10)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Create alphabet:</strong> <code>=CHAR(ROW()+64)</code> - A, B, C... (drag down from row 1)
+          <button class="copy-btn" onclick="copyText('=CHAR(ROW()+64)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+      </div>
+
+      <div class="tip-card" data-keywords="wildcard asterisk question mark search pattern match">
+        <div class="tip-header">
+          <span class="category-badge">Pattern Matching</span>
+          <h3 class="tip-title">Wildcards (* and ?)</h3>
+        </div>
+        <p class="tip-description">Use wildcards in formulas for flexible matching:</p>
+        <ul style="margin-left: 20px; color: #4a5568; line-height: 2;">
+          <li><strong>*</strong> (asterisk) - Matches any number of characters</li>
+          <li><strong>?</strong> (question mark) - Matches exactly one character</li>
+        </ul>
+        <div class="pro-tip">
+          <strong>Example:</strong> <code>=COUNTIF(A:A, "John*")</code> - Count cells starting with "John" (John, Johnny, Johnson)
+          <button class="copy-btn" onclick="copyText('=COUNTIF(A:A, \"John*\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Practical:</strong> <code>=SUMIF(B:B, "*pending*", C:C)</code> - Sum where B contains "pending" anywhere
+          <button class="copy-btn" onclick="copyText('=SUMIF(B:B, \"*pending*\", C:C)', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Question mark:</strong> <code>=COUNTIF(A:A, "????")</code> - Count cells with exactly 4 characters
+          <button class="copy-btn" onclick="copyText('=COUNTIF(A:A, \"????\")', this)" style="margin-left: 10px;">📋 Copy</button>
+        </div>
+        <div class="pro-tip" style="margin-top: 10px;">
+          <strong>Combined:</strong> <code>=COUNTIF(A:A, "A*n")</code> - Starts with "A", ends with "n" (Alan, Aaron, Amazon, etc.)
+          <button class="copy-btn" onclick="copyText('=COUNTIF(A:A, \"A*n\")', this)" style="margin-left: 10px;">📋 Copy</button>
         </div>
       </div>
 
