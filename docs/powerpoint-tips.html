@@ -459,34 +459,251 @@ body {
 }
 
 @media (max-width: 768px) {
+  .header {
+    padding: 60px 15px;
+  }
+
   .header h1 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    letter-spacing: -0.5px;
   }
 
   .header p {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+
+  .back-link {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 0 15px;
+    margin: -40px auto 60px;
+  }
+
+  .search-section {
+    padding: 25px 20px;
+    margin-bottom: 35px;
+  }
+
+  .search-box {
+    padding: 16px 20px;
+    font-size: 1rem;
   }
 
   .tip-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
   }
 
   .section-title {
-    font-size: 1.8rem;
-  }
-
-  .toast {
-    right: 20px;
-    left: 20px;
-    bottom: 20px;
+    font-size: 1.75rem;
+    margin-bottom: 25px;
   }
 
   .tip-card {
-    padding: 25px;
+    padding: 25px 20px;
+    margin-bottom: 20px;
+  }
+
+  .tip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .tip-description {
+    font-size: 1rem;
+  }
+
+  .category-badge {
+    font-size: 0.8rem;
+    padding: 6px 14px;
+  }
+
+  .code-block {
+    font-size: 0.85rem;
+    padding: 12px 14px;
+    max-width: 100%;
+    word-break: break-all;
+  }
+
+  .shortcut-badge {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+  }
+
+  .copy-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    min-height: 44px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .copyable-item {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .shortcuts-grid {
+    gap: 10px;
+  }
+
+  .pro-tip {
+    padding: 14px 16px;
+    font-size: 0.95rem;
+  }
+
+  .toast {
+    right: 15px;
+    left: 15px;
+    bottom: 15px;
+    padding: 16px 20px;
+    font-size: 0.95rem;
   }
 
   .footer-cta {
-    padding: 35px 25px;
+    padding: 30px 20px;
+  }
+
+  .footer-cta h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer-cta p {
+    font-size: 1rem;
+  }
+
+  /* Mobile-friendly language switcher */
+  #languageSwitch {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+}
+
+/* ===== DARK MODE ===== */
+.dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.dark-mode-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+body.dark-mode .header {
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .header::before {
+  background: linear-gradient(135deg, rgba(196, 69, 105, 0.2), rgba(255, 107, 107, 0.2));
+}
+
+body.dark-mode .header h1,
+body.dark-mode .header p,
+body.dark-mode .section-title {
+  color: #ffffff;
+}
+
+body.dark-mode .back-link {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .back-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .search-section,
+body.dark-mode .tip-card {
+  background: rgba(30, 30, 46, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .search-box {
+  background: rgba(40, 40, 60, 0.8);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .tip-title,
+body.dark-mode .tip-description {
+  color: #e0e0e0;
+}
+
+body.dark-mode .code-block {
+  background: linear-gradient(135deg, #2a2a3e 0%, #1f1f2e 100%);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #ff79c6;
+}
+
+body.dark-mode .pro-tip {
+  background: linear-gradient(135deg, #3a3a2e 0%, #2a2a1e 100%);
+  border-left-color: #ffa726;
+}
+
+body.dark-mode .pro-tip strong {
+  color: #ffa726;
+}
+
+body.dark-mode .footer-cta {
+  background: rgba(30, 30, 46, 0.95);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .footer-cta h3,
+body.dark-mode .footer-cta p {
+  color: #e0e0e0;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background: rgba(30, 30, 46, 0.95);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode #languageSwitch {
+  background: #1e1e2e;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode #languageSwitch option {
+  background: #1e1e2e;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+    top: 15px;
+    left: 15px;
   }
 }
 </style>
@@ -819,9 +1036,14 @@ body {
 
 </div>
 
+<!-- Dark Mode Toggle -->
+<button class="dark-mode-toggle" id="darkModeToggle" title="Toggle dark mode">
+  <span id="darkModeIcon">🌙</span>
+</button>
+
 <!-- Language Switcher -->
 <div style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
-  <select id="languageSwitch" style="padding: 10px 15px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); font-weight: 600; cursor: pointer; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+  <select id="languageSwitch" style="padding: 10px 15px; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); font-weight: 600; cursor: pointer; font-size: 0.95rem; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); color: #1a1a1a;">
     <option value="en">🇬🇧 English</option>
     <option value="ja">🇯🇵 日本語</option>
   </select>
@@ -831,6 +1053,26 @@ body {
 <div id="toast" class="toast">Copied to clipboard!</div>
 
 <script src="./script.js"></script>
+<script>
+// Dark mode functionality
+(function() {
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeIcon = document.getElementById('darkModeIcon');
+  const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode');
+    darkModeIcon.textContent = '☀️';
+  }
+
+  darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isNowDark = document.body.classList.contains('dark-mode');
+    darkModeIcon.textContent = isNowDark ? '☀️' : '🌙';
+    localStorage.setItem('darkMode', isNowDark);
+  });
+})();
+</script>
 <script>
 // Copy to clipboard function
 function copyText(text, button) {
