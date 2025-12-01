@@ -12,7 +12,7 @@ class RetroModernSite {
   init() {
     console.log('🚀 Initializing Retro Modern Site...');
     this.updateVisitorCounter();
-    this.setupThemeToggle();
+    // this.setupThemeToggle(); // Disabled - using language switcher instead
     this.setupRouting();
     this.setupAnimations();
     this.initializePageFeatures();
@@ -44,7 +44,9 @@ class RetroModernSite {
     }
   }
 
-  // ===== THEME TOGGLE =====
+  // ===== THEME TOGGLE ===== (DISABLED)
+  // Disabled in favor of language switcher
+  /*
   setupThemeToggle() {
     // Create theme toggle button if it doesn't exist
     if (!document.querySelector('.theme-toggle')) {
@@ -68,6 +70,7 @@ class RetroModernSite {
   applyTheme() {
     document.body.className = this.theme === 'dark' ? 'dark-theme' : 'light-theme';
   }
+  */
 
   // ===== SPA ROUTING =====
   setupRouting() {
